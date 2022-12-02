@@ -23,6 +23,11 @@ const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// stripe id property : prod_MuRM1QrBQu67kA
+// stripe price: price_1MAcUl2eZvKYlo2CESqvUNku
+//curl https://api.stripe.com/v1/prices -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: -d product="prod_MuRM1QrBQu67kA" -d unit_amount=2000 -d currency=usd
+//curl https://api.stripe.com/v1/checkout/sessions -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: -d "payment_method_types[]"=card -d "line_items[][price]"="price_1MAcUl2eZvKYlo2CESqvUNku" -d "line_items[][quantity]"=1 -d mode=payment -d success_url="https://example.com/success?session_id={CHECKOUT_SESSION_ID}" -d cancel_url="https://example.com/cancel"
+
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
