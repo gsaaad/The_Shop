@@ -10,6 +10,9 @@ const StoreProvider = ({ value = [], ...props }) => {
     products: [],
     categories: [],
     currentCategory: "",
+    // add cart
+    cart: [],
+    cartOpen: false,
   });
   // confirm
   console.log(state);
